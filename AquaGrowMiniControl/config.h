@@ -23,12 +23,12 @@ const byte cTemp = 60;
 // Geschwindigkeit der Lüfter -> 0 Aus, 255 Maximale Geschwindigkeit
 const byte pwmValue = 255;
 // Größe Vorratsflaschen Dünger in ml
-const int dose_val = 100;
+const int dose_val = 1000;
 
 // Neu zuordnung der Pins für Dosierung
-const byte dosingPins[]={DOSE1,DOSE2,DOSE3,DOSE4};
+const byte dosingPins[PUMPCOUNTS]={DOSE1,DOSE2,DOSE3,DOSE4};
 // Milliliter per minute in Reihenfolge wie Pumpen oben
-const byte dosingMlMin[]={60,60,60,60};
+const byte dosingMlMin[PUMPCOUNTS]={60,60,60,60};
 
 // Pumpen Einstellungen
 // Uhrzeit, Aktive, Name, Pin Adresse (von array oben 0 ist erste Pumpe "Dose1"), Status (ignorieren, nur wichtig für Programm), Milliliter pro Dosierungconst 
@@ -58,4 +58,4 @@ LIGHT light_channels[LIGHT_CHANEL][LIGHT_VALUES] ={
 LIGHT_STATE dimming[LIGHT_CHANEL] ={{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
 
 // Wird verwendet um zu sehen ob schon dosiert wurde. Nicht Ändern!!!
-boolean dosingState[PUMPCOUNTS];
+boolean dosingState[sizeof dosing / sizeof dosing[0]];
