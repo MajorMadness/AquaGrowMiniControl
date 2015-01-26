@@ -36,7 +36,7 @@ int PWM_Licht(int lightIndex){
   uint32_t Start,Ende;
   byte oMin,oMax;
 
-  if(light_channels[lightIndex][0].time < rtc.daystamp){
+  if(light_channels[lightIndex][0].time > rtc.daystamp){
     Start = light_channels[lightIndex][LIGHT_VALUES-1].time; // 22:00-> 79200
     Ende = light_channels[lightIndex][0].time; // 4:00->  1440
     oMin = light_channels[lightIndex][LIGHT_VALUES-1].level;
