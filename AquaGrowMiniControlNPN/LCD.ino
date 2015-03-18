@@ -4,6 +4,9 @@ void printSpace(int val){
     if(val<10)lcd.print(F(" "));
 }
 
+void printLightVal(byte channel, int val){
+}
+
 void printTemp(float val){
     lcd.setCursor(9,0);
     lcd.print(val);
